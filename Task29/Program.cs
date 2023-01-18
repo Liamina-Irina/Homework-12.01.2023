@@ -3,37 +3,27 @@
 
 // 1, 2, 5, 7, 19, 6, 1, 33 -> [1, 2, 5, 7, 19, 6, 1, 33]
 
-// array[0] = 1;
-// array[1] = 0;
-// array[2] = 1;
-// array[3] = 1;
-// array[4] = 0;
-// array[5] = 1;
-// array[6] = 0;
-// array[7] = 0;
-
-// FillArray(array);
-// PrintArray(array);
-
-int[] array = CreateArray(8);
+int[] array = CreateArray();
 PrintArray(array);
 
-int[] CreateArray(int size)
+int[] CreateArray()
 {
-    int[] arr = new int[size];
+    int [] array = new int[8];
     Random rnd = new Random();
-    for (int i = 0; i < arr.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-    arr[i] = rnd.Next(0, 34); 
+        array[i] = rnd.Next(-100,100);
     }
+    return array;
 }
 
-int[] PrintArray(int size)
+void PrintArray(int[] arr)
 {
-    int[] arr = new int[size];
+    Console.Write("[");
     for (int i = 0; i < arr.Length; i++)
     {
-    Console.Write(arr[i] + " ,"); 
+        if(i < arr.Length - 1) Console.Write(arr[i] + ",");
+        else Console.Write(arr[i]);
     }
+    Console.WriteLine("]");
 }
-Console.WriteLine(); 
