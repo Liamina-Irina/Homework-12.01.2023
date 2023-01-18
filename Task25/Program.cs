@@ -6,19 +6,27 @@
 // 2, 4 -> 16
 
 Console.Write("Введите целое число A: ");
-Console.Write("Введите целое число B: ");
 int numberA = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите целое число B: ");
 int numberB = Convert.ToInt32(Console.ReadLine());
 
-int exponentiationNumbers = ExponentiationNumbers(number);
-Console.WriteLine($"число А {numberA} в степени числа B {numberB} = {exponentiationNumbers}");
+int exponentiationNumbers = ExponentiationNumbers(numberA, numberB);
 
-void ExponentiationNumbers(int numA, int numB)
+int ExponentiationNumbers(int numA, int numB)
 {
-    int exp = 0;
-    for (numB > 0;)
+    int exp = 1;
+    for (int i = 1; i <= numB; i++)
     {
-        exp = numA * numB;
+        exp = exp * numA;
     }
     return exp;
+}
+
+if(numberB > 0)
+{
+    Console.WriteLine($"число А в степени числа B = {exponentiationNumbers}");
+}
+else
+{
+    Console.WriteLine("Вы ввели ненатуральное число B");
 }
